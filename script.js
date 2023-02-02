@@ -1,3 +1,4 @@
+let cart = [];
 let modalQt = 1;
 
 const c = (el) => document.querySelector(el);
@@ -57,3 +58,20 @@ cs('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach(
     item.addEventListener('click', closeModal);
   }
 );
+c('.pizzaInfo--qtmenos').addEventListener('click', () => {
+  if (modalQt > 1) {
+    modalQt--;
+    c('.pizzaInfo--qt').innerHTML = modalQt;
+  }
+});
+c('.pizzaInfo--qtmais').addEventListener('click', () => {
+  modalQt++;
+  c('.pizzaInfo--qt').innerHTML = modalQt;
+});
+cs('.pizzaInfo--size').forEach((size) => {
+  size.addEventListener('click', () => {
+    c('.pizzaInfo--size.selected').classList.remove('selected');
+    size.classList.add('selected');
+  });
+});
+c('.pizzaInfo--addButton').addEventListener('click', () => {});
